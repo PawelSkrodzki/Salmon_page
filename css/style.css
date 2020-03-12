@@ -1,0 +1,981 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2020-02-23, 15:51:11
+    Author     : pawel
+*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+@keyframes fadein{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.scrolled{
+    background-color: red;
+}
+
+.animation1, .left-footer h3,.left-footer h4, .bold-p, .left-footer p, footer ul
+.animation2, .background, .photos, .paragraph, .time, .recipe p, .recipe h4{
+    opacity: 0;
+}
+
+body{
+    font-family: 'Fira Sans', sans-serif ;
+    max-width: 1280px;
+    margin: 0 auto;
+    color: #000000;
+}
+
+p{
+    font-size: 17px;
+    line-height: 24px;
+}
+
+h2{
+    font-size: 44px;
+    line-height: 48px;
+    color: #191919;
+}
+
+h4{
+    font-size: 22px;
+    line-height: 29px;
+    color: #333434;
+}
+
+ul{
+    list-style: none;
+}
+
+section{
+    position: relative;
+    overflow: hidden;
+}
+
+#nav-bar{
+    position: relative;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    z-index: 1000;
+    display: none;
+    background-color: rgba(255,255,255, 0.5);
+    overflow: hidden;
+}
+
+#nav-bar h3{
+    float: left;
+}
+
+#hamburger-menu{
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    right: 17px;
+    top: 17px;
+    float: right;
+    width: 40px;
+    height: 26px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.line{
+    height: 3px;
+    background-color: black;
+    width: 100%;
+}
+
+.change .line1{
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.change .line2{
+    opacity: 0;
+}
+
+.change .line3{
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.hamburger-list{
+    text-align: center;
+    z-index: 999;
+    position: fixed;
+    top:60px;
+    right: -150px;
+    width: 150px;
+    height: 200px;
+    display: block;
+    background-color: rgba(1, 1, 1, 0.8);
+    display: none;
+    transition:  0.5s;
+}
+
+.hamburger-list-opened{
+    right: 0px;
+    transition:  0.5s;
+}
+
+.hamburger-ul{
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+}
+
+.nav-link {
+    margin-top: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    
+}
+
+.nav-link::before,
+.nav-link::after,
+.big-bar a::after{
+    content:"";
+    width: 100%;
+    height: 2px;
+    background-color: rgba(214, 214, 214, 1);
+    position: absolute;
+    left:0;
+    transform: scaleX(0);
+    transition: 0.7s;
+}
+
+.nav-link:before,
+.big-bar a::after{
+    bottom: -1px;
+    transform-origin: left;
+}
+
+.nav-link:after{
+    top:-1px;
+    transform-origin: right;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::after,
+.big-bar a:hover::after
+{
+    transform: scaleX(1);
+    color: white;
+    height: 3px;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px 196px 41px;
+}
+
+header h3{
+    color: #444444;
+    font-family: 'Merriweather', sans-serif ;
+    font-size: 24.48px;
+    font-weight: 100;
+    line-height: 29px;
+    margin-bottom:426px;
+    margin-top: 17px;
+}
+
+h3 span{
+    font-weight: bold;
+}
+
+.big-bar li{
+    position: relative;
+    padding-bottom: 27px;
+}
+
+.big-bar a{
+    padding-top: 5px;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: 'Merriweather', sans-serif ;
+    color: #444444;
+    position: absolute;
+    text-decoration: none;
+}
+
+
+.big-bar a::after{
+    border-bottom: 1px solid black;
+}
+
+.big-bar a:hover{
+    color: black;
+    transition: 0.5s;
+}
+
+nav a span{
+    font-weight: normal;
+    font-style: italic;
+}
+
+.background{
+    position: relative;
+    background-image: url("../img/header_background.png");
+    width: 905px;
+    background-position: left bottom;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 102%;
+    background-color: rgba(1, 1, 1, 0.3);
+}
+
+.overlay h1{
+    font-family: 'Fira Sans', sans-serif;
+    position: absolute;
+    color: #F3F0ED;
+    font-size: 102px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: -137px;
+    transform: translateY(-50%);
+}
+
+.overlay span{
+    color: black;
+}
+
+.manifesto{
+    height: 883px;
+    margin-bottom: 122px;
+}
+
+.manifesto p{
+    color: #000000;
+    font-size: 14px;
+    padding-top: 70px;
+    text-align: center;
+}
+
+.manifesto h2{
+    padding-top: 15px;
+    width: 665px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.photos{
+    position: absolute;
+    z-index: -1;
+}
+
+.photo1{
+    top: 0;
+    right: 0;
+}
+
+.photo2{
+    top: 150px;
+    left: 0;
+}
+
+.photo3{
+    bottom: 0;
+    right: 232px;
+}
+
+.farming{
+    display: flex;
+}
+
+.farming div{
+    max-width: 405px;
+    margin: 0 auto;
+    padding: 0 20px 0 30px;
+}
+
+.bold-p{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.farming div p{
+    font-family: 'Merriweather', sans-serif;
+}
+
+.farming div h2{
+    line-height: 56px;
+    margin: 15px 0px 22px 0px;
+}
+
+.farming div span{
+    display: block;
+    padding: 35px 0px 0px 5px;
+}
+
+.highlights{
+    display: flex;
+    justify-content: flex-end;
+    margin: 200px 0 188px 0;
+}
+
+.highlights-img{
+    width: 50%;
+    text-align: right;
+}
+
+.texts{
+    padding-left: 30px;
+}
+
+.texts h2{
+    padding: 30px 0px 50px 0px;
+    width: 400px;
+}
+
+.paragraph{
+    overflow: hidden;
+    padding: 32px 0px 32px 0px;
+    border-top: 0.5px solid #333434;
+}
+
+.paragraph:last-of-type{
+    border-bottom: 0.5px solid #333434;
+}
+
+.paragraph img{   
+    float: left;
+    margin-right: 31px;
+}
+
+.paragraph p{
+    width: 600px;
+    padding: 0px 15px 66px 0px;
+}
+
+.more{
+    width: 102px;
+    margin-top: 18px;
+    position: relative;
+}
+
+.quality{
+    height: 1012px;
+}
+
+.quality div{
+    padding-top: 202px;
+    padding-left: 50px;
+}
+
+.quality h2{
+    width: 390px;
+    padding: 18px 0px 20px 0px;
+}
+
+.quality p{
+    max-width: 410px;
+}
+
+.quality img:first-of-type{
+    position: absolute;
+    top: 0; 
+    right: 132px;
+    z-index: -999;
+}
+
+.quality img:last-of-type{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.recipes{
+    margin: 202px 0px 100px 0px;
+}
+
+.recipes > p{
+    text-align: center;
+}
+
+.recipes h2{
+    padding: 18px 0px 30px 0px;
+    margin: 0 auto;
+    text-align: center;
+    width: 600px;   
+}
+
+.recipe{
+    margin-top: 60px;
+    width: 40%;
+    max-width: 490px;
+    position: relative;
+    
+}
+
+.recipe img{
+    width: 100%;
+}
+
+.recipe h4{
+    padding: 12px 0px 8px 0px;
+}
+
+.recipe:nth-of-type(2){
+    padding-left: 132px;
+}
+
+.flexbox{
+    flex-wrap: wrap;
+    display: flex;  
+}
+
+.left{
+    justify-content: flex-start;
+}
+
+.right{
+    justify-content: flex-end;
+}
+
+.time{
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    font-size: 16.8px;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 1px solid black;
+    border-bottom: 2px dotted black;
+    border-radius: 90%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+footer{
+    border-top: 0.5px solid #191919;
+    margin: 0px 27px 0px 20px;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+.left-footer{
+    float: left;
+}
+
+.left-footer h4{
+    width: 250px;
+    margin-bottom: 40px;    
+}
+
+footer ul{
+    float: right;
+    padding-left: 50px;
+}
+
+footer h3{
+    font-size: 24.48px;
+    font-family: 'Merriweather', sans-serif ;
+    font-weight: normal;
+    margin-bottom: 70px;
+}
+
+h3 span{
+    font-weight: bold;
+    font-family: 'Fira Sans', sans-serif ;
+    font-size: 27px;
+}
+
+footer p{
+    font-size: 12px;
+    color: #333434;
+}
+
+footer ul li{
+    font-family: 'Merriweather', sans-serif ;
+    line-height: 28px;
+}
+
+footer ul li p{
+    font-family: 'Fira Sans', sans-serif ;
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+
+
+/*  ------ MOBILE STYLES ------ */
+
+
+
+@media(max-width: 1186px){
+    
+    .background {
+        width: 70%;
+        height: 400px;
+    }
+    
+    header h3{
+        margin-bottom:230px;
+    }
+    
+    .overlay h1{
+        font-size: 66px;
+        left: -95px;
+    }
+    
+    .photo1{
+        top: 100px;
+        width: 37%;
+    }
+    
+    .photo2{
+        top: 200px;
+        width: 40%;
+    }
+
+    .photo3{
+        top: 520px;
+        right: 15%;
+        width: 30%;
+    }
+    
+    .highlights{
+        justify-content: flex-start;
+        margin: 200px 0px 150px 0px;
+    }
+    
+    .texts h2{
+        padding: 0px 0px 50px 0px;
+    }
+    
+    .paragraph{
+        width: 500px;
+        padding: 12px 0px 12px 0px;
+    }
+    
+    .paragraph p{
+        width: 500px;
+    }
+    
+    .highlights-img{
+        position: absolute;
+        right: 0;
+        z-index: -999;
+    }
+    
+    .highlights-img img{
+        width: 100%;
+        margin-left: 20px;
+    }
+    
+    .quality img:first-of-type{
+        right: 30px;
+    }
+    
+    footer ul{
+        width: 30%;
+        padding: 20px 0 40px 0;
+    }
+    
+}
+@media(max-width: 1050px){
+    
+    .farming img{
+        width: 450px;
+    }
+    
+    .highlights-img{
+        display: none;
+    }
+    
+    .texts{
+        display: block;
+        padding-left: 100px;
+    }
+    
+    .quality{
+        height: 950px;
+    }
+} 
+ 
+@media(max-width: 800px){
+    
+    header{
+        display: block;
+        margin: 0px 0px 56px 41px;
+        overflow: hidden;
+    }
+    
+    header h3{
+        margin-bottom: 50px;
+    }
+    
+    .big-bar ul{
+        display: flex;
+        justify-content:space-around;
+        align-items:flex-end;
+        margin-left: 90px;
+    }
+    
+    .big-bar li{
+        display: inline;
+        height: 20px;
+        margin-bottom: 27px;
+        padding-bottom: 0px;
+    }
+    .big-bar li a{
+        position: static;
+    }
+    
+    .background{
+        float: right;
+        width: 85%;
+    }
+    
+    .manifesto{
+        margin-bottom: 50px;
+    }
+    
+    .photo1{
+        width: 42%;
+        top: 160px;
+    }
+    
+    .photo2{
+        z-index: -997;
+    }
+    
+    .photo3{
+        bottom: -20px;
+        right: 120px; 
+    }
+    
+    .highlights{
+        margin: 100px 0 138px 0;
+    }
+    
+    .farming{
+        flex-wrap: wrap;
+        flex-direction:column-reverse;
+    }
+    
+    .farming img{
+        width: 50%;
+        margin: 50px 0 0 40%;
+    }
+    
+    .farming div{
+        margin: 0 0 0 30px;
+    }  
+    
+    .quality{
+        height: auto;
+    }
+    
+    .quality div{
+        padding: 90px 0px 100px 90px;
+        clear: both;
+    }
+    
+    .quality img:first-of-type{
+        position: static;
+        float: right;    
+    }
+    
+    .quality img:last-of-type{
+       position: static;
+       transform: translate(0%);
+    }
+    
+    .recipes{
+        margin: 138px 0px 100px 0px;
+    }
+    
+    .recipe{
+        padding-top: 50px;
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+    
+    }
+
+    .recipe:nth-of-type(2){
+        padding-left: 0px;
+    }
+
+    .right{
+        justify-content: flex-start;
+    }
+    
+    footer ul:nth-of-type(3),  footer ul:nth-of-type(4){
+        display: none;
+    }
+
+}
+@media(max-width: 650px){
+        
+    h2{
+        font-size: 36px;
+        line-height: 36px;
+    }
+        
+    header nav, .big-bar{
+        display: none;
+    }
+    
+    header{
+        display: block;
+        margin: 0;
+    }
+    
+    #nav-bar, .hamburger-list{
+        display: block;
+    }
+        
+    header h3{
+       margin-left: 15px;
+    }
+    
+    .overlay h1{
+        font-size: 44px;
+        left: -60px;
+        max-width: 420px;
+    }
+    
+    .manifesto{
+        margin-bottom: 72px;
+        height: 700px;
+    }
+    
+    .manifesto h2{
+        font-size: 26px;
+        width: 430px;
+    }
+    
+    .photo1{
+        display: block;
+        top: 184px;
+        width: 80%;
+    }
+    .photo2{
+        display: none;
+    }
+    .photo3{
+        width: 50%;
+        top: 450px;
+        left: 0px;
+    }
+    
+    .farming div{
+        margin: 0;
+    }
+    
+    .highlights{
+        display: block;
+    }
+    
+    .highlights div{
+        padding-left: 15px;
+    }
+    
+    .highlights h2{
+        padding-bottom: 25px;
+    }
+    
+    .paragraph{
+        max-width: 400px;
+    }
+    
+    .paragraph p{
+        padding: 30px 15px 26px 0px;
+        max-width: 400px;
+    }
+    
+    .quality div{
+        padding: 70px 0px 70px 30px;
+    }  
+    
+    .quality img{
+        width: 80%;
+    }
+    
+    .recipes h2{
+        max-width: 440px;
+    }
+    
+}
+
+@media(max-width: 420px){
+        
+        p{
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        h2{
+            font-size: 26px;
+            line-height: 38px;
+            color: #191919;
+        }
+        
+        h4{
+            font-size: 22px;
+            line-height: 29px;
+            color: #333434;
+        }
+        
+        .bold-p{
+        font-size: 10px;    
+        }
+        
+        .background{
+            width: 100%;
+        }
+        
+        .overlay h1{
+            left: 0;
+            margin-left: 5px;
+            width: 320px;
+            font-size: 40px;
+            line-height: 56px;
+        }
+        
+        .manifesto{
+            height: 500px;           
+        }
+        
+        .manifesto h2{
+            width: 320px;
+        }
+        
+        .photo1{
+            display: block;
+            width: 100%;
+        }
+        .photo3{
+            display: none;
+        }
+        
+        .farming{
+            display:block;
+        }
+        
+        .farming img{
+            display: none;
+        }
+        
+        .farming div{
+            margin: 0;
+            padding: 0 0 0 15px;
+        }
+        
+        .farming div h2{
+            width: 200px;
+            line-height: 38px;
+        }
+        
+        .farming div p{
+            width: auto;
+            max-width: 300px;
+        }
+        
+        .texts{
+            padding-left: 0px;
+        }
+        
+        .highlights{
+            display: block;
+            margin: 50px 0 50px 0; 
+        }
+        
+        .highlights h2{
+            max-width: 300px;
+        }
+        
+        .paragraph{
+            width: 320px;
+        }
+        
+        .paragraph h4{
+            padding: 15px 15px;
+        } 
+        
+        .paragraph p{
+            width: 300px;
+            padding: 0px 15px 30px 15px;
+        }  
+        
+        .paragraph img{
+            padding-left: 15px;
+            float: none;
+        }
+
+        .paragraph span{
+            padding-left: 15px;
+        }
+        
+        .quality div{
+            padding: 50px 0 50px 15px;
+        }
+        
+        .quality h2{
+            width: 250px;
+            padding: 10px 0px 10px 0px;
+        }
+        
+        .quality p{
+            width: 300px;
+        }
+        
+        .quality img:first-of-type{
+            width: 70%;
+        }
+        
+        .quality img:last-of-type{
+            width: 70%;
+        }
+        
+        .recipes{
+            margin: 50px 0px 100px 0px;
+        }
+        
+        .recipes h2{
+            width: 300px;
+            padding: 10px 0px 0px 0px;
+        }
+        
+        .recipe h4, .recipe p{
+            margin-left: 15px;
+        }
+        
+        .time{
+            height: 40px;
+            width: 40px;
+            font-size: 15px;
+            right: 10px;
+        }
+       
+        footer ul{
+            padding: 20px 0 20px 0;
+            width: 100%;
+        }
+
+}
